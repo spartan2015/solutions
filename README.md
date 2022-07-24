@@ -1,0 +1,1 @@
+opensearch integrated with gitlab example
