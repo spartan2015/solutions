@@ -565,7 +565,7 @@ data:
     opensearch.ssl.verificationMode: none
     opensearch.username: kibanaserver
     opensearch_security.auth.type: openid
-    opensearch_security.openid.base_redirect_url: https://opensearch.eosdcs.net
+    opensearch_security.openid.base_redirect_url: https://server.net
     opensearch_security.openid.client_id: [to set]
     opensearch_security.openid.client_secret: [to set]
     opensearch_security.openid.connect_url: https://gitlab.com/.well-known/openid-configuration
@@ -575,8 +575,8 @@ data:
     opensearch_security.session.ttl: 1200000
     opensearch_security.openid.refresh_tokens: true 
     server:
-      host: opensearch.eosdcs.net
-      name: opensearch.eosdcs.net
+      host: server.net
+      name: server.net
 ---
 # Source: opensearch-dashboards/templates/rolebinding.yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -729,10 +729,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - "opensearch.eosdcs.net"
+        - "server.net"
       secretName: opensearch-tls
   rules:
-    - host: "opensearch.eosdcs.net"
+    - host: "server.net"
       http:
         paths:
           - path: /
